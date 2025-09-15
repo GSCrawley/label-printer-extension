@@ -1,0 +1,30 @@
+{
+  "manifest_version": 3,
+  "name": "ProShop Label Printer",
+  "version": "1.0.0",
+  "description": "Print 6 ProShop labels directly from Work Order pages.",
+  "action": { "default_popup": "popup/popup.html" },
+  "permissions": ["activeTab", "scripting", "storage"],
+  "host_permissions": [
+    "https://*/workorders/*",
+    "https://*/proshop/*",
+    "https://*/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["https://*/*"],
+      "js": ["content/content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "styles/print.css"
+      ],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}
+
+// ### NOTE: adjust matches to your client’s exact ProShop origin/path (you can keep <all_urls> during dev, then tighten).

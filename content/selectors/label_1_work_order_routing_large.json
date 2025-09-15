@@ -1,0 +1,17 @@
+{
+  "fields": {
+    "workOrder":   { "selectors": ["[data-wo-number]", ".wo-number"], "label": "Work Order #" },
+    "customer":    { "selectors": [".customer .value"], "label": "Customer" },
+    "partNo":      { "selectors": [".part .value", "[data-part-number]"], "label": "Part #" },
+    "partRev":     { "selectors": [".part-rev .value"], "label": "Part Rev" },
+    "qtyOrdered":  { "selectors": [".qty-ordered .value"], "label": "Qty Ordered" }
+  },
+  "operations": {
+    "rowSelector": "table.operations tbody tr",
+    "cols": {
+      "op":         { "selectors": [".col-op"],        "nth": 0 },
+      "description":{ "selectors": [".col-desc"],      "nth": 1 },
+      "resource":   { "selectors": [".col-resource"],  "nth": 2 }
+    }
+  }
+}
