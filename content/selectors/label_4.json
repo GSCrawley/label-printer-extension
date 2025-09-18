@@ -1,0 +1,37 @@
+{
+  "actions": [
+    { "type": "waitFor", "selector": "main .wo-header, #page-title, body" },
+
+    // 1) From Work Order, go to BOM / Material (tab or link with that text)
+    { "type": "clickByText", "text": "BOM", "fuzzy": true, "timeout_ms": 8000 },
+    { "type": "waitFor", "selector": "main, .bom-page, .material-page" },
+
+    // 2) On BOM page, open the MATERIAL section if it’s a collapsible region
+    { "type": "clickIfExists", "selectorList": [
+        "button[aria-controls*='material']",
+        ".section-header:has(._label), .section-header",
+        "summary:has-text('Material')"
+      ],
+      "safetyDelay_ms": 300
+    },
+
+    // 3) If the specific data is in a dropdown/table row, expand it
+    { "type": "clickByTextIfExists", "text": "Open Work Order", "fuzzy": true, "safetyDelay_ms": 200 },
+    { "type": "clickByTextIfExists", "text": "Material", "fuzzy": true, "safetyDelay_ms": 200 },
+
+    // 4) Give DOM time to render expanded rows
+    { "type": "sleep", "ms": 200 }
+  ],
+
+  "fields": {
+    "poNumber":       { "selectors": ["[data-po-number]", ".po-number", "td[data-col='PO #'] + td .value"], "label": "PO #", "regex": "(\\d[-\\d]*)" },
+    "vendor":         { "selectors": [".vendor-name .value", "[data-vendor]"], "label": "VENDOR" },
+    "partSpec":       { "selectors": [".part-spec, .material-spec .value"], "label": "PART #"},
+    "qty":            { "selectors": [".qty .value", "td[data-col='QTY'] + td .value"], "label": "QTY" },
+    "units":          { "selectors": [".units .value"], "label": "UNITS" },
+    "costPer":        { "selectors": [".cost-per .value", "td[data-col='COST / PER'] + td .value"], "label": "COST / PER" },
+    "completeForRev": { "selectors": [".complete-for-rev .value"], "label": "Complete for Rev" },
+    "rack":           { "selectors": [".rack .value"], "label": "RACK #"},
+    "workOrder":      { "selectors": ["[data-wo-number]", ".wo-number"], "label": "WORK ORDER" }
+  }
+}
