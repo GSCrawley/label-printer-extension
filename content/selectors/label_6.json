@@ -1,0 +1,43 @@
+{
+  "actions": [
+    { "type": "waitFor", "selector": "body" },
+
+    // If your UI has a "Navigation" tab/link for the work order, try to enter it.
+    { "type": "clickByTextIfExists", "text": "Work Order Navigation", "fuzzy": true, "safetyDelay_ms": 250 },
+
+    // Give the page a moment to render after nav
+    { "type": "sleep", "ms": 150 }
+  ],
+  "fields": {
+    "workOrder": {
+      "selectors": ["[data-wo-number]", ".wo-number", "h1 .wo", ".header .wo"],
+      "label": "WORK ORDER"
+    },
+    "customer": {
+      "selectors": [".customer .value", "[data-customer]"],
+      "label": "CUSTOMER"
+    },
+    "partNo": {
+      "selectors": [".part-number .value", "[data-part-number]"],
+      "label": "PART #"
+    },
+    "partRev": {
+      "selectors": [".part-rev .value", "[data-part-rev]"],
+      "label": "Part Rev"
+    },
+    "qtyOrdered": {
+      "selectors": [".qty-ordered .value", "[data-qty-ordered]"],
+      "label": "Qty Ordered"
+    },
+
+    // Optional fields commonly present on Work Order Navigation
+    "custDue": {
+      "selectors": [".cust-due .value", "[data-cust-due]"],
+      "label": "CUST. DUE"
+    },
+    "rawStockQty": {
+      "selectors": [".raw-stock-qty .value", "[data-raw-stock-qty]"],
+      "label": "Raw Stock Qty"
+    }
+  }
+}

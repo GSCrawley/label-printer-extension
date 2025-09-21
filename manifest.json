@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "description": "Print 6 ProShop labels directly from Work Order pages.",
   "action": { "default_popup": "popup/popup.html" },
-  "permissions": ["activeTab", "scripting", "storage"],
+  "permissions": ["activeTab", "scripting", "storage", "notifications"],
   "host_permissions": [
     "https://*/workorders/*",
     "https://*/proshop/*",
@@ -24,7 +24,18 @@
       ],
       "matches": ["<all_urls>"]
     }
-  ]
-}
+  ],
+  "commands": {
+  "toggle-print-mode": {
+    "suggested_key": {
+      "default": "Ctrl+Shift+P",
+      "mac": "Command+Shift+P"
+    },
+    "description": "Toggle between Preview and Silent print mode"
+  }
+},
+  "background": {
+    "service_worker": "background.js"
+  }}
 
 // ### NOTE: adjust matches to your client’s exact ProShop origin/path (you can keep <all_urls> during dev, then tighten).

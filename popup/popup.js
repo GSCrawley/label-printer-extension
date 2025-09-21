@@ -32,10 +32,33 @@ const els = {
   smallPrinters: document.getElementById("smallPrinters"),
   zebraInfo: document.getElementById("zebraInfo"),
   status: document.getElementById("status"),
-  printBtn: document.getElementById("printBtn")
+  printBtn: document.getElementById("printBtn"),
+  modeToggle: document.getElementById("modeToggle"),
+  modeLabel: document.getElementById("modeLabel")
 };
 
 let chosenSmallPrinter = null;
+let currentMode = "preview"; // "preview" | "silent"
+
+function setModeClass() {
+  document.body.classList.toggle("silent", currentMode === "silent");
+  document.body.classList.toggle("preview", currentMode !== "silent");
+}
+// init: load saved mode
+chrome.storage.sync.get({ printMode: "preview" }, ({ printMode }) => {
+  currentMode = printMode;
+  els.modeToggle.checked = (printMode === "silent");
+  els.modeLabel.textContent = printMode === "silent" ? "Silent mode" : "Preview mode";
+  setModeClass();  
+});
+
+// save on change
+els.modeToggle.addEventListener("change", () => {
+  currentMode = els.modeToggle.checked ? "silent" : "preview";
+  els.modeLabel.textContent = els.modeToggle.checked ? "Silent mode" : "Preview mode";
+  chrome.storage.sync.set({ printMode: currentMode });
+  setModeClass();   
+});
 
 function setSmallPrinter(id) {
   chosenSmallPrinter = id;
@@ -102,9 +125,11 @@ els.printBtn.addEventListener("click", async () => {
     targetPrinterId = chosenSmallPrinter;
   }
 
-  try {
+   const messageType = currentMode === "silent" ? "PRINT_LABEL_SILENT" : "PRINT_LABEL_PREVIEW";
+
+   try {
     const res = await sendToActiveTab({
-      type: "PRINT_LABEL_SILENT",
+      type: messageType,
       payload: {
         labelType,
         options: { barcodeOn },
@@ -114,11 +139,20 @@ els.printBtn.addEventListener("click", async () => {
           orientation: spec.orientation,
           margin_in: spec.margin_in
         },
-        targetPrinterId
+        targetPrinterId,
+        debug: { mode: currentMode }
       }
     });
-    els.status.textContent = res?.ok ? "Sent to printer." : (res?.error || "Print failed.");
+    els.status.textContent = res?.ok ? (currentMode === "silent" ? "Sent to printer." : "Opened preview.") : (res?.error || "Failed.");
   } catch (e) {
     els.status.textContent = e.message;
   }
+chrome.storage.onChanged.addListener((changes, area) => {
+  if (area === "sync" && changes.printMode) {
+    currentMode = changes.printMode.newValue;
+    els.modeToggle.checked = (currentMode === "silent");
+    els.modeLabel.textContent = currentMode === "silent" ? "Silent mode" : "Preview mode";
+    setModeClass();
+  }
+});
 });
