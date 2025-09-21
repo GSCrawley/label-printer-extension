@@ -7,23 +7,40 @@
 </head>
 <body>
   <h3>Print Label</h3>
+
+  <label for="labelType">Label</label>
   <select id="labelType">
-    <option value="work_order_routing_large">Work Order Routing — Large</option>
-    <option value="label_2">Label 2</option>
-    <option value="label_3">Label 3</option>
-    <option value="label_4">Label 4</option>
-    <option value="label_5">Label 5</option>
-    <option value="label_6">Label 6</option>
+    <option value="label_1">Label 1 — Work Order Routing (4×6)</option>
+    <option value="label_2">Label 2 (62×100 mm)</option>
+    <option value="label_3">Label 3 (62×100 mm)</option>
+    <option value="label_4">Label 4 — BOM TAG #4 (4×6)</option>
+    <option value="label_5">Label 5 (62×100 mm)</option>
+    <option value="label_6">Label 6 (62×100 mm)</option>
   </select>
 
   <div class="row">
-    <label>Barcode:</label>
-    <input type="checkbox" id="barcodeOn" checked />
+    <label><input type="checkbox" id="barcodeOn" checked> Barcode</label>
   </div>
 
-  <button id="printBtn">Generate & Print</button>
+  <!-- Printer selection: shown only for small labels -->
+  <div id="smallPrinters" class="row" hidden>
+    <div class="group-label">Send to Brother (62×100):</div>
+    <div class="btns">
+      <button type="button" class="pbtn" data-printer="bro_1">Brother #1</button>
+      <button type="button" class="pbtn" data-printer="bro_2">Brother #2</button>
+      <button type="button" class="pbtn" data-printer="bro_3">Brother #3</button>
+    </div>
+  </div>
+
+  <!-- Zebra route always used for 4×6 -->
+  <div id="zebraInfo" class="row info" hidden>
+    Will print to <strong>Zebra (4×6)</strong> automatically.
+  </div>
+
+  <button id="printBtn">Generate &amp; Print</button>
   <div id="status"></div>
 
-  <script src="popup.js"></script>
+  <script type="module" src="popup.js"></script>
 </body>
+
 </html>

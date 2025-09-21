@@ -1,0 +1,6 @@
+.row { margin: 8px 0; }
+.group-label { margin-bottom: 6px; font-weight: 600; }
+.btns { display: flex; gap: 6px; }
+.pbtn { padding: 6px 10px; border: 1px solid #ccc; border-radius: 8px; background: #f6f6f6; cursor: pointer; }
+.pbtn.active { outline: 2px solid #0078d4; background: #eef6ff; }
+.info { color: #444; }
