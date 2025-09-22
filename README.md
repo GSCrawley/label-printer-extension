@@ -297,3 +297,146 @@ Caveats:
 - Prefer attribute starts-with selectors for dynamic IDs: `[id^="horizontalMainAtts_partNumber_value"]`
 - Combine with data attributes if available.
 - Provide both a structural path and a label-based fallback via the JSON `label` key so scraper can fallback to text-near-label if direct selector fails.
+
+### Test plan (in order)
+Load the extension
+
+Go to chrome://extensions → Load unpacked → select your repo folder.
+
+Confirm:
+
+Badge shows P (green) for Preview mode.
+
+background.js is listed as the service worker.
+
+preview/preview.html and preview/preview.js are in web_accessible_resources in your manifest.
+
+Mode toggle + badge + shortcut
+
+Open the popup:
+
+Flip the Preview/Silent toggle; confirm the label (“Preview mode”/“Silent mode”) changes and persists.
+
+Close popup; press Ctrl+Shift+P (Mac: ⌘⇧P). Open popup again → mode should have flipped.
+
+Badge should change: P (green) ↔ S (orange).
+
+Keep the popup open and press the shortcut → mode text and toggle should live-update (thanks to the storage listener you added).
+
+Label preview UI (always opens)
+ For each label (1–6):
+
+Select the label in the popup.
+
+For small labels (2/3/5/6), choose a Brother (1/2/3). For large labels (1/4), Brother buttons are hidden.
+
+Click the popup’s print button → a Preview window opens (no OS dialog).
+
+In the preview header:
+
+Mode shows Preview or Silent (based on toggle).
+
+“Label: …” matches your selection.
+
+“Size: … mm” reflects the correct spec (4×6 → 101.6×152.4, DK-1202 → 62×100).
+
+“Printer: …” shows zebra_4x6 for large labels, or the Brother you chose for small.
+
+Preview page buttons
+
+System Print…: should print the iframe’s content (expect OS print dialog).
+
+Print:
+
+In Preview mode, this button is hidden (by design).
+
+In Silent mode, it’s visible and will call the native host.
+
+If your native host isn’t installed yet, you’ll get a friendly alert (“Silent print failed”). That’s expected for this phase.
+
+Large→Small guard rail (the “are you sure?” case)
+
+Select a small label (e.g., Label 2), pick Brother #1, open preview (works).
+
+Without closing popup, switch to a large label (Label 1 or 4).
+
+Click the popup button:
+
+You should see the confirmation: “This label is 4×6 and the selected printer is 62×100 mm…”
+
+Cancel → Preview opens targeting Zebra at 4×6.
+
+OK → Preview opens targeting the Brother with 62×100 sizing (margin 0.16″).
+
+
+Selectors sanity check
+
+
+Navigate to the target ProShop page(s):
+
+
+Label 1: Work Order Routing page.
+
+
+Label 2: Work Order Navigation (small).
+
+
+Label 3: click path into Non-Conformance Report (the label_3.json has clickByText:"Non-Conformance Report").
+
+
+Label 4: your multi-page path you already wired.
+
+
+Label 6: Work Order Navigation (stub fields).
+
+
+Use the popup to open the preview; verify the fields on each label match the page content (WO #, Customer, Part #/Rev, etc.).
+
+
+If a field is blank, it’s almost always a selector/caption mismatch. Quick fix: edit the "label" text in the corresponding content/selectors/label_X.json to match what you see on screen (case/spacing agnostic), or add a more specific CSS selector to that field’s "selectors" array. No JS changes needed—save, reload extension, retest.
+
+
+Layout, sizes, margins
+
+
+In the preview, visually check:
+
+
+Label 1/4 (4×6) respect 0.375″ inner padding (look at the whitespace border).
+
+
+Label 2/3/5/6 (62×100 mm) respect 0.16″ inner padding.
+
+
+Click System Print… → in Chrome’s print preview, verify paper size shows 4×6 in or 62×100 mm (or set custom if needed during this test phase).
+
+
+Silent print path (when you’re ready)
+
+
+Install/run the native host on the test machine.
+
+
+Switch to Silent mode, open preview, click Print:
+
+
+Expect the background to forward to the native host (PREVIEW_SILENT_PRINT handler).
+
+
+If you’re using Azure/UP, confirm the job lands in the intake/target queue and routes by size (or by selected Brother).
+
+
+Common gotchas (and quick fixes)
+Popup or preview blocked: allow pop-ups for your domain (you need new windows for the preview UI).
+
+
+Content script not running: confirm the matches: in manifest.json covers the actual ProShop URLs; widen temporarily (e.g., https://*/*) while testing.
+
+
+Badge not updating: ensure the storage listener is present in background.js and that you’re using chrome.storage.sync for printMode.
+
+
+Label opens but wrong data: tweak the JSON selectors/labels; keep 2–3 CSS fallbacks and a "label" caption for each field.
+
+
+

@@ -38,7 +38,7 @@ const builders = {
    * LABEL 1 — Work Order Routing (Large 4×6)
    * Expected data: fields = { workOrder, customer, partNo, partRev, qtyOrdered }, operations = [{op, description, resource}]
    */
-  work_order_routing_large({ fields, operations = [] }, { barcodeOn }, { pageClass, innerMarginStyle }) {
+  label_1({ fields, operations = [] }, { barcodeOn }, { pageClass, innerMarginStyle }) {
     const { workOrder, customer, partNo, partRev, qtyOrdered } = fields || {};
     const barcode = barcodeOn ? generateBarcodeSVG(workOrder || "") : "";
 
