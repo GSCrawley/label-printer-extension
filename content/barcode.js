@@ -1,6 +1,4 @@
-// content/barcode.js
-// Keep the existing fake barcode as a fallback.
-// Add a minimal QR generator suitable for short payloads (e.g., Work Order #).
+
 
 export function generateBarcodeSVG(text) {
   if (!text) return "";

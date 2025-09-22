@@ -1,8 +1,6 @@
-// content/specs.js
-
-export const LABEL_SPECS = {
+export const LABESPECS = {
   // Large 4×6 (Zebra)
-  work_order_routing_large: { sizeKey: "4x6",  width_mm: 101.6, height_mm: 152.4, margin_in: 0.375, orientation: "portrait" },
+  label_1: { sizeKey: "4x6",  width_mm: 101.6, height_mm: 152.4, margin_in: 0.375, orientation: "portrait" },
   label_4:                   { sizeKey: "4x6",  width_mm: 101.6, height_mm: 152.4, margin_in: 0.375, orientation: "portrait" },
 
   // Small 62×100 mm (Brother DK-1202)

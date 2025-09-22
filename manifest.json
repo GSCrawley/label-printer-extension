@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "description": "Print 6 ProShop labels directly from Work Order pages.",
   "action": { "default_popup": "popup/popup.html" },
-  "permissions": ["activeTab", "scripting", "storage", "notifications"],
+  "permissions": ["activeTab", "scripting", "storage", "notifications", "nativeMessaging"],
   "host_permissions": [
     "https://*/workorders/*",
     "https://*/proshop/*",
@@ -20,7 +20,10 @@
   "web_accessible_resources": [
     {
       "resources": [
-        "styles/print.css"
+        "styles/print.css",
+        "preview/preview.html",
+        "preview/preview.css",
+        "preview/preview.js"
       ],
       "matches": ["<all_urls>"]
     }

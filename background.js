@@ -50,4 +50,42 @@ chrome.commands.onCommand.addListener((command) => {
   }
 });
 
+// background.js (append to your existing code)
+chrome.runtime.onMessage.addListener((message, _sender, sendResponse) => {
+  (async () => {
+    if (message?.type === "PREVIEW_SILENT_PRINT") {
+      try {
+        const { html, labelType, page, targetPrinterId } = message.payload || {};
+         const ok = await sendToNativeSilent({ html, labelType, page, targetPrinterId });
+        sendResponse({ ok });
+      } catch (e) {
+        console.error(e);
+        sendResponse({ ok: false, error: String(e?.message || e) });
+      }
+    }
+  })();
+  return true;
+});
+
+async function sendToNativeSilent({ html, labelType, page, targetPrinterId }) {
+  try {
+    const port = chrome.runtime.connectNative("com.client.proshop_printer");
+    return await new Promise((resolve, reject) => {
+      port.onMessage.addListener((m) => (m?.ok ? resolve(true) : reject(m?.error || "Native host error")));
+      port.onDisconnect.addListener(() => resolve(false));
+      port.postMessage({
+        action: "print",
+        labelType,
+        page,
+        targetPrinterId,
+        mime: "text/html",
+        dataBase64: btoa(unescape(encodeURIComponent(html))) // agent renders HTML -> PDF and submits
+      });
+    });
+  } catch (e) {
+    console.error(e);
+    return false;
+  }
+}
+
 getPrintMode().then(setBadgeForMode);
