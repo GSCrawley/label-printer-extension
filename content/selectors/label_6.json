@@ -2,10 +2,8 @@
   "actions": [
     { "type": "waitFor", "selector": "body" },
 
-    // If your UI has a "Navigation" tab/link for the work order, try to enter it.
     { "type": "clickByTextIfExists", "text": "Work Order Navigation", "fuzzy": true, "safetyDelay_ms": 250 },
 
-    // Give the page a moment to render after nav
     { "type": "sleep", "ms": 150 }
   ],
   "fields": {
@@ -30,7 +28,6 @@
       "label": "Qty Ordered"
     },
 
-    // Optional fields commonly present on Work Order Navigation
     "custDue": {
       "selectors": [".cust-due .value", "[data-cust-due]"],
       "label": "CUST. DUE"

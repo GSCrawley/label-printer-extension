@@ -1,4 +1,4 @@
-export const LABESPECS = {
+export const LABEL_SPECS = {
   // Large 4×6 (Zebra)
   label_1: { sizeKey: "4x6",  width_mm: 101.6, height_mm: 152.4, margin_in: 0.375, orientation: "portrait" },
   label_4:                   { sizeKey: "4x6",  width_mm: 101.6, height_mm: 152.4, margin_in: 0.375, orientation: "portrait" },

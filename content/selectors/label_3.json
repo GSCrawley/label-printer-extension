@@ -1,27 +1,18 @@
 {
   "actions": [
     { "type": "waitFor", "selector": "body" },
-
-    // Open the NCR view
-    { "type": "clickByText", "text": "Non-Conformance Report", "fuzzy": true, "timeout_ms": 10000, "safetyDelay_ms": 250 },
-
-    // Wait for NCR header/content to render
+    { "type": "clickByText", "text": "Non-Conformance Report", "fuzzy": true, "timeout_ms": 10000, "safetyDelay_ms": 250 },  
     { "type": "waitFor", "selector": "h1, h2, .ncr-header, .page-title" },
     { "type": "sleep", "ms": 150 }
   ],
-  "fields": {
-    // The blue line under the title often carries the WO; try header selectors first, then fallback by label
-    "workOrder":     { "selectors": [".ncr-header .wo", ".ncr-header .value", ".page-title .wo", ".page-title .value", "h2 .wo", "h2 .value"], "label": "WORK ORDER" },
 
+  "fields": {
+    "workOrder":     { "selectors": [".ncr-header .wo", ".ncr-header .value", ".page-title .wo.page-title .value", "h2 .wo", "h2 .value"], "label": "WORK ORDER" },
     "customer":      { "selectors": [".customer .value", "[data-customer]"], "label": "CUSTOMER" },
     "partNo":        { "selectors": [".part-number .value", "[data-part-number]"], "label": "PART #" },
     "partName":      { "selectors": [".part-name .value", "[data-part-name]"], "label": "PART NAME" },
     "partRev":       { "selectors": [".part-rev .value", "[data-part-rev]"], "label": "Part Rev" },
-
-    // Table/summary values; label fallback will catch "Qty" in the left caption
     "qty":           { "selectors": [".qty .value", "td[data-col='Qty'] + td .value"], "label": "Qty" },
-
-    // Some UIs spell it "Disposition Qty" or "DISPOSITION QTY"; label fallback handles case/spacing
     "dispositionQty": { "selectors": [".disposition-qty .value", "td[data-col='Disposition Qty'] + td .value"], "label": "DISPOSITION QTY" }
   }
 }

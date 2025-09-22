@@ -41,4 +41,3 @@
     "service_worker": "background.js"
   }}
 
-// ### NOTE: adjust matches to your client’s exact ProShop origin/path (you can keep <all_urls> during dev, then tighten).
