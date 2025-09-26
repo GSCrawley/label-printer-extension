@@ -13,7 +13,7 @@
 
 ### 1.2 Research Questions to Ask Ed
 - What web-based shop software does he use? (Shopify, WooCommerce, custom system?)
-- What are the 6 different label types? (shipping, product, barcode, etc.)
+- What are the 6 different label types? (shipping, product, NCR, BOM tag, etc.)
 - What label printer model/size requirements?
 - Where on the web interface should the extension appear?
 
@@ -56,7 +56,7 @@ Create these files in your project folder:
       <button id="label1" class="label-btn">Shipping Label</button>
       <button id="label2" class="label-btn">Product Label</button>
       <button id="label3" class="label-btn">Price Label</button>
-      <button id="label4" class="label-btn">Barcode Label</button>
+  <button id="label4" class="label-btn">(Former Barcode) Repurpose Label</button>
       <button id="label5" class="label-btn">Return Label</button>
       <button id="label6" class="label-btn">Custom Label</button>
     </div>

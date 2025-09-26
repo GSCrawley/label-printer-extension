@@ -8,18 +8,15 @@
 <body>
   <h3>Print Label</h3>
   <select id="labelType">
-    <option value="work_order_routing_large">Work Order Routing — Large</option>
-    <option value="label_2">Label 2</option>
-    <option value="label_3">Label 3</option>
-    <option value="label_4">Label 4</option>
+    <option value="label_1">Work Order Routing — Large</option>
+    <option value="label_2">Work Order Navigation - Small</option>
+    <option value="label_3">NCR TAG #3</option>
+    <option value="label_4">BOM TAG #4</option>
     <option value="label_5">Label 5</option>
     <option value="label_6">Label 6</option>
   </select>
 
-  <div class="row">
-    <label>Barcode:</label>
-    <input type="checkbox" id="barcodeOn" checked />
-  </div>
+  <!-- Barcode option removed -->
 
   <button id="printBtn">Generate & Print</button>
   <div id="status"></div>

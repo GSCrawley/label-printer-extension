@@ -1,13 +1,11 @@
-import { generateBarcodeSVG } from "./barcode.js"; // optional; can return "" if off
+// Templates for labels (barcode feature removed).
 
 const esc = s => String(s ?? "").replace(/[&<>"]/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[m]));
 
 // register all label builders here
 const builders = {
-  work_order_routing_large({ fields, operations }, { barcodeOn }) {
+  label_1({ fields, operations }) {
     const { workOrder, customer, partNo, partRev, qtyOrdered } = fields;
-
-    const barcode = barcodeOn ? generateBarcodeSVG(workOrder || "") : "";
 
     const opsRows = operations.map(o => `
       <tr>
@@ -34,7 +32,7 @@ const builders = {
         <div><strong>Part:</strong> ${esc(partNo)} &nbsp; <strong>Rev:</strong> ${esc(partRev)}</div>
         <div><strong>Qty Ordered:</strong> ${esc(qtyOrdered)}</div>
       </div>
-      <div class="right barcode">${barcode}</div>
+      
     </header>
 
     <table class="ops">
@@ -54,11 +52,9 @@ const builders = {
   },
 
   // placeholder builders for other labels; add as templates arrive
-  label_2({ fields }, opts) { return basicLabel("Label 2", fields, opts); },
-  label_3({ fields }, { barcodeOn }) {
+  label_2({ fields }) { return basicLabel("Label 2", fields); },
+  label_3({ fields }) {
     const { ncrRefNumber, partNo, partName, partDescription, customer, custPoNumber, qty, dispositionedQty, partRev, status, responsibility, type, ncrCode, causeCode, partsAffected, user, assignedTo, ncrDate, notes } = fields;
-
-    const barcode = barcodeOn ? generateBarcodeSVG(ncrRefNumber || "") : "";
 
     return `
 <!doctype html>
@@ -74,14 +70,14 @@ const builders = {
     .details div { flex: 1 1 50%; margin-bottom: 5px; }
     .details strong { display: inline-block; min-width: 120px; }
     .notes { margin-top: 10px; font-style: italic; }
-    .barcode { text-align: center; margin-top: 10px; }
+  
   </style>
 </head>
 <body>
   <section class="label page-sm">
     <header class="header">
       <h1>NON-CONFORMANCE REPORT</h1>
-      <div class="barcode">${barcode}</div>
+  
     </header>
 
     <div class="details">
@@ -114,17 +110,37 @@ const builders = {
 </body>
 </html>`;
   },
-  label_4({ fields }, opts) { return basicLabel("Label 4", fields, opts); },
-  label_5({ fields }, opts) { return basicLabel("Label 5", fields, opts); },
-  label_6({ fields }, opts) { return basicLabel("Label 6", fields, opts); }
+// inside builders in content/templates.js
+label_4({ fields }) {
+  const { poNumber, vendor, partSpec, qty, units, costPer, completeForRev, rack, workOrder } = fields;
+  return `
+<!doctype html><html><head><meta charset="utf-8">
+<link rel="stylesheet" href="${chrome.runtime.getURL('styles/print.css')}">
+<title>BOM TAG #4</title></head>
+<body>
+<section class="label page-sm">
+  <h1 style="text-align:center; font-size:14pt; margin:0 0 6px">MATERIAL FOR<br>OPEN WORK ORDER</h1>
+  <div><strong>PO #:</strong> ${poNumber}</div>
+  <div><strong>VENDOR:</strong><br>${vendor}</div>
+  <div><strong>PART #</strong><br>${partSpec}</div>
+  <div><strong>QTY:</strong> ${qty} <strong>UNITS</strong>: ${units}</div>
+  <div><strong>COST / PER:</strong> ${costPer}</div>
+  <div><strong>Complete for Rev:</strong> ${completeForRev}</div>
+  <div><strong>RACK #</strong> ${rack}</div>
+  <div><strong>WORK ORDER:</strong><br><span style="font-size:16pt">${workOrder}</span></div>
+</section>
+<script>window.onload = () => setTimeout(() => window.print(), 50);</script>
+</body></html>`;
+},
+  label_5({ fields }) { return basicLabel("Label 5", fields); },
+  label_6({ fields }) { return basicLabel("Label 6", fields); }
 };
 
-// Alias: allow legacy UI value 'label_1' to map to the large WOR template
-builders.label_1 = builders.work_order_routing_large;
+// Provide an alias for work_order_routing_large if referenced elsewhere
+builders.work_order_routing_large = builders.label_1;
 
-function basicLabel(title, fields, { barcodeOn }) {
+function basicLabel(title, fields) {
   const firstKey = Object.keys(fields)[0] || "";
-  const barcode = barcodeOn ? generateBarcodeSVG(fields[firstKey] || "") : "";
   return `
 <!doctype html><html><head><meta charset="utf-8">
 <link rel="stylesheet" href="${chrome.runtime.getURL('styles/print.css')}">
@@ -133,7 +149,7 @@ function basicLabel(title, fields, { barcodeOn }) {
   <section class="label page-sm">
     <h1>${esc(title)}</h1>
     <pre>${esc(JSON.stringify(fields, null, 2))}</pre>
-    <div class="barcode">${barcode}</div>
+    
   </section>
   <script>window.onload = () => setTimeout(() => window.print(), 50);</script>
 </body></html>`;

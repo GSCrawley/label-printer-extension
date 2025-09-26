@@ -2,11 +2,9 @@
   "actions": [
     { "type": "waitFor", "selector": "main .wo-header, #page-title, body" },
 
-    // 1) From Work Order, go to BOM / Material (tab or link with that text)
     { "type": "clickByText", "text": "BOM", "fuzzy": true, "timeout_ms": 8000 },
     { "type": "waitFor", "selector": "main, .bom-page, .material-page" },
 
-    // 2) On BOM page, open the MATERIAL section if it’s a collapsible region
     { "type": "clickIfExists", "selectorList": [
         "button[aria-controls*='material']",
         ".section-header:has(._label), .section-header",
@@ -15,11 +13,9 @@
       "safetyDelay_ms": 300
     },
 
-    // 3) If the specific data is in a dropdown/table row, expand it
     { "type": "clickByTextIfExists", "text": "Open Work Order", "fuzzy": true, "safetyDelay_ms": 200 },
     { "type": "clickByTextIfExists", "text": "Material", "fuzzy": true, "safetyDelay_ms": 200 },
 
-    // 4) Give DOM time to render expanded rows
     { "type": "sleep", "ms": 200 }
   ],
 

@@ -5,16 +5,12 @@ async function sendToActiveTab(message) {
 
 document.getElementById('printBtn').addEventListener('click', async () => {
   const labelType = document.getElementById('labelType').value;
-  const barcodeOn = document.getElementById('barcodeOn').checked;
-
   document.getElementById('status').textContent = 'Building label…';
-
   try {
     const res = await sendToActiveTab({
       type: 'PRINT_LABEL',
-      payload: { labelType, options: { barcodeOn } }
+      payload: { labelType }
     });
-
     document.getElementById('status').textContent = res?.ok
       ? 'Sent to print window.'
       : (res?.error || 'Unable to print on this page.');
