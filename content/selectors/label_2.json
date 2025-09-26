@@ -1,0 +1,13 @@
+{
+  "actions": [
+    { "type": "waitFor", "selector": "body" }
+  ],
+  "fields": {
+    "workOrder":      { "selectors": ["[data-wo-number]", ".wo-number", "h1 .wo", ".header .wo"], "label": "WORK ORDER" },
+    "customer":       { "selectors": [".customer .value", "[data-customer]"], "label": "CUSTOMER" },
+    "partNo":         { "selectors": [".part-number .value", "[data-part-number]"], "label": "PART #" },
+    "partRev":        { "selectors": [".part-rev .value", "[data-part-rev]"], "label": "Part Rev" },
+    "qtyOrdered":     { "selectors": [".qty-ordered .value", "[data-qty-ordered]"], "label": "Qty Ordered" },
+    "completeForRev": { "selectors": [".complete-for-rev .value", "[data-complete-for-rev]"], "label": "Complete for Rev" }
+  }
+}

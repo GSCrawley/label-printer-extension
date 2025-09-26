@@ -1,0 +1,657 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title>202501: Non-Conformance Report Navigation</title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2566">
+  <style type="text/css">
+    body {background-color: #fefeff}
+    p.p8 {margin: 0.0px 0.0px 0.0px 0.0px; line-height: 20.1px; font: 13.4px Roboto; color: #292a29; -webkit-text-stroke: #292a29; min-height: 15.0px}
+    p.p11 {margin: 0.0px 0.0px 0.0px 0.0px; line-height: 20.1px; font: 13.4px Roboto; color: #ffffff; -webkit-text-stroke: #ffffff; min-height: 15.0px}
+    p.p12 {margin: 0.0px 0.0px 0.0px 0.0px; line-height: 20.1px; font: 13.4px Roboto; color: #4d504f; -webkit-text-stroke: #4d504f}
+    p.p13 {margin: 0.0px 0.0px 0.0px 0.0px; line-height: 20.1px; font: 13.4px Roboto; color: #1551a2; -webkit-text-stroke: #1551a2}
+    p.p14 {margin: 0.0px 0.0px 0.0px 0.0px; line-height: 20.1px; font: 13.4px Roboto; color: #4d504f; -webkit-text-stroke: #4d504f; background-color: #febfc1}
+    p.p15 {margin: 0.0px 0.0px 0.0px 0.0px; line-height: 20.1px; font: 12.0px Roboto; color: #000000; -webkit-text-stroke: #000000}
+    p.p16 {margin: 0.0px 0.0px 0.0px 0.0px; line-height: 24.0px; font: 12.5px 'Roboto Medium'; color: #ffffff; -webkit-text-stroke: #ffffff}
+    p.p17 {margin: 0.0px 0.0px 0.0px 0.0px; line-height: 19.5px; font: 13.0px Roboto; color: #0f0f0f; -webkit-text-stroke: #0f0f0f; background-color: #dfdfdf}
+    p.p18 {margin: 0.0px 0.0px 0.0px 0.0px; text-align: center; line-height: 20.1px; font: 13.4px Roboto; color: #000000; -webkit-text-stroke: #000000}
+    p.p19 {margin: 0.0px 0.0px 0.0px 0.0px; text-align: center; line-height: 20.1px; font: 13.4px Roboto; color: #1551a2; -webkit-text-stroke: #1551a2}
+    p.p20 {margin: 0.0px 0.0px 0.0px 0.0px; text-align: center; line-height: 20.1px; font: 13.4px Roboto; color: #000000; -webkit-text-stroke: #000000; min-height: 15.0px}
+    p.p21 {margin: 0.0px 0.0px 0.0px 0.0px; line-height: 20.1px; font: 13.4px Roboto; color: #0f0f0f; -webkit-text-stroke: #0f0f0f}
+    p.p22 {margin: 0.0px 0.0px 0.0px 0.0px; line-height: 20.1px; font: 13.4px Roboto; color: #0f0f0f; -webkit-text-stroke: #0f0f0f; min-height: 15.0px}
+    p.p23 {margin: 0.0px 0.0px 0.0px 0.0px; text-align: center; line-height: 20.1px; font: 13.4px Roboto; color: #ffffff; -webkit-text-stroke: #ffffff; min-height: 15.0px}
+    p.p24 {margin: 0.0px 0.0px 0.0px 0.0px; text-align: right; line-height: 20.1px; font: 13.4px Roboto; color: #000000; -webkit-text-stroke: #000000}
+    p.p25 {margin: 0.0px 0.0px 0.0px 0.0px; line-height: 20.1px; font: 13.4px Roboto; color: #000000; -webkit-text-stroke: #000000}
+    p.p26 {margin: 0.0px 0.0px 0.0px 0.0px; text-align: right; line-height: 20.1px; font: 13.4px Roboto; color: #000000; -webkit-text-stroke: #000000; min-height: 15.0px}
+    p.p27 {margin: 0.0px 0.0px 0.0px 0.0px; line-height: 19.5px; font: 13.0px Times; color: #ffffff; -webkit-text-stroke: #ffffff}
+    p.p28 {margin: 0.0px 0.0px 0.0px 0.0px; line-height: 24.0px; font: 12.5px 'Roboto Medium'; color: #ffffff; -webkit-text-stroke: #ffffff; background-color: #081626}
+    p.p29 {margin: 0.0px 0.0px 0.0px 0.0px; text-align: center; line-height: 17.3px; font: 11.5px Roboto; color: #292a29; -webkit-text-stroke: #292a29}
+    p.p30 {margin: 0.0px 0.0px 0.0px 0.0px; text-align: center; line-height: 17.3px; font: 11.5px Roboto; color: #1551a2; -webkit-text-stroke: #1551a2}
+    p.p31 {margin: 0.0px 0.0px 0.0px 0.0px; text-align: center; line-height: 15.1px; font: 10.1px Roboto; color: #292a29; -webkit-text-stroke: #292a29}
+    p.p32 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times; color: #000000; -webkit-text-stroke: #000000; min-height: 14.0px}
+    p.p33 {margin: 0.0px 0.0px 0.0px 0.0px; line-height: 20.1px; font: 13.4px Roboto; color: #292a29; -webkit-text-stroke: #292a29}
+    li.li1 {margin: 0.0px 0.0px 0.0px 0.0px; line-height: 20.1px; font: 13.4px 'Roboto Medium'; color: #ffffff}
+    li.li2 {margin: 0.0px 0.0px 0.0px 0.0px; line-height: 20.1px; font: 13.4px 'Roboto Medium'; color: #ffffff; -webkit-text-stroke: #ffffff}
+    li.li3 {margin: 0.0px 0.0px 0.0px 0.0px; line-height: 20.1px; font: 13.4px 'Roboto Medium'; color: #000a17; -webkit-text-stroke: #000a17}
+    li.li4 {margin: 0.0px 0.0px 0.0px 0.0px; line-height: 20.1px; font: 15.1px 'Roboto Medium'; color: #454e67; -webkit-text-stroke: #454e67}
+    li.li5 {margin: 0.0px 0.0px 0.0px 0.0px; line-height: 20.1px; font: 13.4px Roboto; color: #292a29; min-height: 15.0px}
+    li.li6 {margin: 0.0px 0.0px 6.7px 0.0px; line-height: 20.1px; font: 13.4px Roboto; color: #292a29; min-height: 15.0px}
+    li.li7 {margin: 0.0px 0.0px 0.0px 0.0px; line-height: 20.1px; font: 13.4px Roboto; color: #292a29}
+    span.s1 {font-kerning: none; -webkit-text-stroke: 0px #ffffff}
+    span.s2 {-webkit-text-stroke: 0px #000000}
+    span.s3 {font-kerning: none}
+    span.s4 {font-kerning: none; background-color: #000a17}
+    span.s5 {background-color: #000a17; -webkit-text-stroke: 0px #000000}
+    span.s6 {background-color: #ffffff; -webkit-text-stroke: 0px #000000}
+    span.s7 {font-kerning: none; background-color: transparent}
+    span.s8 {background-color: #ececef; -webkit-text-stroke: 0px #000000}
+    span.s9 {font-kerning: none; background-color: #fc343e}
+    span.s10 {background-color: #a30009; -webkit-text-stroke: 0px #000000}
+    span.s11 {font-kerning: none; -webkit-text-stroke: 0px #292a29}
+    span.s12 {font: 13.4px 'Roboto Medium'; font-kerning: none; color: #ffffff; -webkit-text-stroke: 0px #ffffff}
+    span.s13 {font-kerning: none; background-color: #dadadb}
+    span.s14 {font: 17.3px 'Roboto Medium'; font-kerning: none}
+    span.s15 {font: 13.4px Roboto; font-kerning: none; color: #1551a2; -webkit-text-stroke: 0px #1551a2}
+    span.s16 {font-kerning: none; background-color: #89aef8}
+    span.s17 {font-kerning: none; background-color: #081626}
+    span.s18 {font: 13.0px Roboto; font-kerning: none; color: #0f0f0f; background-color: #dfdfdf; -webkit-text-stroke: 0px #0f0f0f}
+    span.s19 {font-kerning: none; background-color: #dfdfdf}
+    span.s20 {font: 16.0px 'Material Icons'; font-kerning: none; color: #0f0f0f; background-color: #dfdfdf; -webkit-text-stroke: 0px #0f0f0f}
+    span.s21 {font: 13.4px Roboto; font-kerning: none; color: #0f0f0f; -webkit-text-stroke: 0px #0f0f0f}
+    span.s22 {font: 13.4px Roboto; font-kerning: none; color: #0f0f0f; background-color: #fefeff; -webkit-text-stroke: 0px #0f0f0f}
+    span.s23 {font-kerning: none; color: #292a29; -webkit-text-stroke: 0px #292a29}
+    span.s24 {font-kerning: none; color: #1551a2; -webkit-text-stroke: 0px #1551a2}
+    table.t1 {width: 800.0px; border-collapse: collapse}
+    table.t2 {width: 790.0px; border-collapse: collapse}
+    table.t3 {background-color: #e4e4ef; border-style: solid; border-width: 1.0px 1.0px 0.0px 1.0px; border-color: #8c93bb #8c93bb #d6dbe0 #8c93bb}
+    table.t4 {width: 334.5px}
+    table.t5 {width: 169.4px}
+    table.t6 {width: 213.1px}
+    table.t7 {border-collapse: collapse}
+    table.t8 {margin: 10.0px 10.0px 10.0px 10.0px; padding: 2.0px 2.0px 2.0px 2.0px; border-collapse: collapse}
+    td.td1 {width: 800.0px; padding: 5.0px 5.0px 5.0px 5.0px}
+    td.td2 {width: 740.0px}
+    td.td3 {width: 341.5px; padding: 5.0px 5.0px 5.0px 2.0px}
+    td.td4 {width: 88.9px; max-width: 671.4px; border-style: solid; border-width: 0.0px 0.0px 1.0px 0.0px; border-color: #d3d3d3 #d3d3d3 #d3d3d3 #d3d3d3; padding: 5.0px 8.0px 5.0px 8.0px}
+    td.td5 {width: 245.6px; max-width: 671.4px; border-style: solid; border-width: 0.0px 0.0px 1.0px 0.0px; border-color: #d3d3d3 #d3d3d3 #d3d3d3 #d3d3d3; padding: 5.0px 8.0px 5.0px 8.0px}
+    td.td6 {width: 176.4px; padding: 5.0px 5.0px 5.0px 2.0px}
+    td.td7 {width: 98.9px; max-width: 671.4px; border-style: solid; border-width: 0.0px 0.0px 1.0px 0.0px; border-color: #d3d3d3 #d3d3d3 #d3d3d3 #d3d3d3; padding: 5.0px 8.0px 5.0px 8.0px}
+    td.td8 {width: 70.5px; max-width: 671.4px; border-style: solid; border-width: 0.0px 0.0px 1.0px 0.0px; border-color: #d3d3d3 #d3d3d3 #d3d3d3 #d3d3d3; padding: 5.0px 8.0px 5.0px 8.0px}
+    td.td9 {width: 220.1px; padding: 5.0px 5.0px 5.0px 2.0px}
+    td.td10 {width: 105.2px; max-width: 671.4px; border-style: solid; border-width: 0.0px 0.0px 1.0px 0.0px; border-color: #d3d3d3 #d3d3d3 #d3d3d3 #d3d3d3; padding: 5.0px 8.0px 5.0px 8.0px}
+    td.td11 {width: 107.9px; max-width: 671.4px; border-style: solid; border-width: 0.0px 0.0px 1.0px 0.0px; border-color: #d3d3d3 #d3d3d3 #d3d3d3 #d3d3d3; padding: 5.0px 8.0px 5.0px 8.0px}
+    td.td12 {width: 50.0px}
+    td.td13 {width: 790.0px; padding: 5.0px 0.0px 0.0px 0.0px}
+    td.td14 {width: 49.2px; background-color: #ffffff; border-style: solid; border-width: 0.0px 1.0px 0.0px 1.0px; border-color: #000000 #000000 #000000 #000000; padding: 5.0px 10.0px 5.0px 10.0px}
+    td.td15 {width: 97.0px; background-color: #ffffff; border-style: solid; border-width: 0.0px 1.0px 0.0px 1.0px; border-color: #000000 #000000 #000000 #000000; padding: 5.0px 10.0px 5.0px 10.0px}
+    td.td16 {width: 81.7px; background-color: #ffffff; border-style: solid; border-width: 0.0px 1.0px 0.0px 1.0px; border-color: #000000 #000000 #000000 #000000; padding: 5.0px 10.0px 5.0px 10.0px}
+    td.td17 {width: 103.7px; background-color: #ffffff; border-style: solid; border-width: 0.0px 1.0px 0.0px 1.0px; border-color: #000000 #000000 #000000 #000000; padding: 5.0px 10.0px 5.0px 10.0px}
+    td.td18 {width: 80.0px; background-color: #ffffff; border-style: solid; border-width: 0.0px 1.0px 0.0px 1.0px; border-color: #000000 #000000 #000000 #000000; padding: 5.0px 10.0px 5.0px 10.0px}
+    td.td19 {width: 104.6px; background-color: #ffffff; border-style: solid; border-width: 0.0px 1.0px 0.0px 1.0px; border-color: #000000 #000000 #000000 #000000; padding: 5.0px 10.0px 5.0px 10.0px}
+    td.td20 {width: 49.2px; background-color: #f5f6fb; border-style: solid; border-width: 0.0px 1.0px 0.0px 1.0px; border-color: #000000 #000000 #000000 #000000; padding: 5.0px 8.0px 5.0px 8.0px}
+    td.td21 {width: 97.0px; background-color: #f5f6fb; border-style: solid; border-width: 0.0px 1.0px 0.0px 1.0px; border-color: #000000 #000000 #000000 #000000; padding: 5.0px 8.0px 5.0px 8.0px}
+    td.td22 {width: 81.7px; background-color: #f5f6fb; border-style: solid; border-width: 0.0px 1.0px 0.0px 1.0px; border-color: #000000 #000000 #000000 #000000; padding: 5.0px 8.0px 5.0px 8.0px}
+    td.td23 {width: 103.7px; background-color: #f5f6fb; border-style: solid; border-width: 0.0px 1.0px 0.0px 1.0px; border-color: #000000 #000000 #000000 #000000; padding: 5.0px 8.0px 5.0px 8.0px}
+    td.td24 {width: 80.0px; background-color: #f5f6fb; border-style: solid; border-width: 0.0px 1.0px 0.0px 1.0px; border-color: #000000 #000000 #000000 #000000; padding: 5.0px 8.0px 5.0px 8.0px}
+    td.td25 {width: 104.6px; background-color: #f5f6fb; border-style: solid; border-width: 0.0px 1.0px 0.0px 1.0px; border-color: #000000 #000000 #000000 #000000; padding: 5.0px 8.0px 5.0px 8.0px}
+    td.td26 {width: 790.0px}
+    td.td27 {width: 128.8px; padding: 5.0px 5.0px 5.0px 5.0px}
+    td.td28 {width: 155.3px}
+    td.td29 {width: 155.3px; padding: 5.0px 5.0px 5.0px 5.0px}
+    td.td30 {width: 628.4px}
+    td.td31 {width: 89.0px; background-color: #ffffff; border-style: solid; border-width: 0.0px 1.0px 0.0px 1.0px; border-color: #000000 #000000 #000000 #000000; padding: 5.0px 10.0px 5.0px 10.0px}
+    td.td32 {width: 110.4px; background-color: #ffffff; border-style: solid; border-width: 0.0px 1.0px 0.0px 1.0px; border-color: #000000 #000000 #000000 #000000; padding: 5.0px 10.0px 5.0px 10.0px}
+    td.td33 {width: 193.0px; background-color: #ffffff; border-style: solid; border-width: 0.0px 1.0px 0.0px 1.0px; border-color: #000000 #000000 #000000 #000000; padding: 5.0px 10.0px 5.0px 10.0px}
+    td.td34 {width: 70.6px; background-color: #ffffff; border-style: solid; border-width: 0.0px 1.0px 0.0px 1.0px; border-color: #000000 #000000 #000000 #000000; padding: 5.0px 10.0px 5.0px 10.0px}
+    td.td35 {width: 91.0px; background-color: #ffffff; border-style: solid; border-width: 0.0px 1.0px 0.0px 1.0px; border-color: #000000 #000000 #000000 #000000; padding: 5.0px 10.0px 5.0px 10.0px}
+    td.td36 {width: 73.3px; background-color: #ffffff; border-style: solid; border-width: 0.0px 1.0px 0.0px 1.0px; border-color: #000000 #000000 #000000 #000000; padding: 5.0px 10.0px 5.0px 10.0px}
+    td.td37 {width: 89.0px; background-color: #f5f6fb; border-style: solid; border-width: 0.0px 1.0px 0.0px 1.0px; border-color: #000000 #000000 #000000 #000000; padding: 5.0px 8.0px 5.0px 8.0px}
+    td.td38 {width: 110.4px; background-color: #f5f6fb; border-style: solid; border-width: 0.0px 1.0px 0.0px 1.0px; border-color: #000000 #000000 #000000 #000000; padding: 5.0px 8.0px 5.0px 8.0px}
+    td.td39 {width: 193.0px; background-color: #f5f6fb; border-style: solid; border-width: 0.0px 1.0px 0.0px 1.0px; border-color: #000000 #000000 #000000 #000000; padding: 5.0px 8.0px 5.0px 8.0px}
+    td.td40 {width: 70.6px; background-color: #f5f6fb; border-style: solid; border-width: 0.0px 1.0px 0.0px 1.0px; border-color: #000000 #000000 #000000 #000000; padding: 5.0px 8.0px 5.0px 8.0px}
+    td.td41 {width: 91.0px; background-color: #f5f6fb; border-style: solid; border-width: 0.0px 1.0px 0.0px 1.0px; border-color: #000000 #000000 #000000 #000000; padding: 5.0px 8.0px 5.0px 8.0px}
+    td.td42 {width: 73.3px; background-color: #f5f6fb; border-style: solid; border-width: 0.0px 1.0px 0.0px 1.0px; border-color: #000000 #000000 #000000 #000000; padding: 5.0px 8.0px 5.0px 8.0px}
+    td.td43 {width: 89.0px; background-color: #ffffff; background-color: rgba(255, 255, 255, 0.9); border-style: solid; border-width: 0.0px 1.0px 0.0px 1.0px; border-color: #000000 #000000 #000000 #000000; padding: 5.0px 8.0px 5.0px 8.0px}
+    td.td44 {width: 110.4px; background-color: #ffffff; background-color: rgba(255, 255, 255, 0.9); border-style: solid; border-width: 0.0px 1.0px 0.0px 1.0px; border-color: #000000 #000000 #000000 #000000; padding: 5.0px 8.0px 5.0px 8.0px}
+    td.td45 {width: 193.0px; background-color: #ffffff; background-color: rgba(255, 255, 255, 0.9); border-style: solid; border-width: 0.0px 1.0px 0.0px 1.0px; border-color: #000000 #000000 #000000 #000000; padding: 5.0px 8.0px 5.0px 8.0px}
+    td.td46 {width: 70.6px; background-color: #ffffff; background-color: rgba(255, 255, 255, 0.9); border-style: solid; border-width: 0.0px 1.0px 0.0px 1.0px; border-color: #000000 #000000 #000000 #000000; padding: 5.0px 8.0px 5.0px 8.0px}
+    td.td47 {width: 91.0px; background-color: #ffffff; background-color: rgba(255, 255, 255, 0.9); border-style: solid; border-width: 0.0px 1.0px 0.0px 1.0px; border-color: #000000 #000000 #000000 #000000; padding: 5.0px 8.0px 5.0px 8.0px}
+    td.td48 {width: 73.3px; background-color: #ffffff; background-color: rgba(255, 255, 255, 0.9); border-style: solid; border-width: 0.0px 1.0px 0.0px 1.0px; border-color: #000000 #000000 #000000 #000000; padding: 5.0px 8.0px 5.0px 8.0px}
+    td.td49 {width: 89.0px; background-color: #ffff0b; border-style: solid; border-width: 0.0px 1.0px 0.0px 1.0px; border-color: #000000 #000000 #000000 #000000; padding: 5.0px 8.0px 5.0px 8.0px}
+    td.td50 {width: 628.4px; padding: 5.0px 0.0px 0.0px 0.0px}
+    td.td51 {width: 790.0px; padding: 0.0px 0.0px 0.0px 10.0px}
+    ul.ul1 {list-style-type: none}
+  </style>
+</head>
+<body>
+<ul class="ul1">
+  <li class="li1"><span class="s1"><br>
+</span></li>
+  <ul class="ul1">
+    <li class="li2"><span class="s2"></span><span class="s3"><br>
+</span><span class="s4">Close</span><span class="s3"><br>
+</span></li>
+    <li class="li2"><span class="s5"></span><span class="s4">Edward Koehn Co., Inc.</span><span class="s3"><br>
+</span></li>
+    <li class="li2"><span class="s5"></span><span class="s4">Modules</span><span class="s3"><br>
+</span></li>
+    <li class="li2"><span class="s2"><a href="https://ekmfg.adionsystems.com/procnc/nonconformancereports"><span class="s3"><br>
+</span><span class="s4">Non-Conformance Reports</span><span class="s3"><br>
+</span></a></span></li>
+  </ul>
+  <li class="li1"><span class="s1"><br>
+</span></li>
+  <li class="li3"><span class="s6"><a href="https://ekmfg.adionsystems.com/procnc/users/010"><span class="s3">Ek</span><span class="s7"><br>
+</span></a></span></li>
+  <ul class="ul1">
+    <li class="li4"><span class="s8"><a href="https://ekmfg.adionsystems.com/procnc/users/010"><span class="s3">Edward K</span><span class="s7"><br>
+</span><span class="s9"><br>
+</span></a></span></li>
+    <li class="li2"><span class="s2"></span><span class="s3"><br>
+</span><span class="s4">Time Clock Punch</span><span class="s3"><br>
+</span></li>
+    <li class="li2"><span class="s2"><a href="https://ekmfg.adionsystems.com/procnc/procncAdmin/viewTimeTracking"><span class="s3"><br>
+</span><span class="s4">Time Tracking</span><span class="s3"><br>
+</span></a></span></li>
+    <li class="li2"><span class="s2"><a href="https://ekmfg.adionsystems.com/procnc/users/010$formName=messageinbox"><span class="s3"><br>
+</span><span class="s4">Inbox</span><span class="s3"><br>
+</span></a></span></li>
+    <li class="li2"><span class="s2"></span><span class="s3"><br>
+</span><span class="s4">Compose New Message</span></li>
+    <li class="li2"><span class="s2"></span><span class="s3"><br>
+</span><span class="s4">Watch This</span><span class="s3"><br>
+</span></li>
+    <li class="li2"><span class="s2"><a href="https://ekmfg.adionsystems.com/procnc/workorders/25-0720"><span class="s3"><br>
+</span><span class="s4">Last Work Order</span><span class="s3"><br>
+</span></a></span></li>
+    <li class="li2"><span class="s2"><a href="https://ekmfg.adionsystems.com/procnc/users/010$formName=cartAdmin&amp;pName=users"><span class="s3"><br>
+</span><span class="s4">My Carts</span><span class="s3"><br>
+</span></a></span></li>
+    <li class="li2"><span class="s2"><a href="https://ekmfg.adionsystems.com/procnc/users/010$formName=userPage"><span class="s3"><br>
+</span><span class="s4">Preferences</span><span class="s3"><br>
+</span></a></span></li>
+    <li class="li2"><span class="s2"><a href="https://ekmfg.adionsystems.com/procnc/users/010$formName=manageCheckOuts"><span class="s3"><br>
+</span><span class="s4">Manage Checkouts</span><span class="s3"><br>
+</span></a></span></li>
+    <li class="li2"><span class="s2"><a href="https://ekmfg.adionsystems.com/procnc/procncAdmin/viewAsUser?flowthrough=L3Byb2NuYy9ub25jb25mb3JtYW5jZXJlcG9ydHMvMjAyNS8yMDI1MDEk"><span class="s3"><br>
+</span><span class="s4">View As User</span><span class="s3"><br>
+</span></a></span></li>
+    <li class="li2"><span class="s2"><a href="https://ekmfg.adionsystems.com/procnc/procncAdmin/utils/resetUserPasswords"><span class="s3"><br>
+</span><span class="s4">Manage User Passwords</span><span class="s3"><br>
+</span></a></span></li>
+    <li class="li2"><span class="s2"><a href="https://ekmfg.adionsystems.com/procnc/procncAdmin/ManageOTPDevices"><span class="s3"><br>
+</span><span class="s4">Manage 2Fa Devices</span><span class="s3"><br>
+</span></a></span></li>
+    <li class="li2"><span class="s2"><a href="https://ekmfg.adionsystems.com/procnc/procncAdmin/utils/viewProfile?profile_page=L3Byb2NuYy9ub25jb25mb3JtYW5jZXJlcG9ydHMvMjAyNS8yMDI1MDE/"><span class="s3"><br>
+</span><span class="s4">Profile This Page</span><span class="s3"><br>
+</span></a></span></li>
+    <li class="li2"><span class="s10"><a href="https://ekmfg.adionsystems.com/home/member/signOut"><span class="s3">Log Out</span><span class="s7"><br>
+</span></a></span></li>
+    <li class="li5"></li>
+  </ul>
+  <li class="li1"><span class="s1"><br>
+</span></li>
+  <li class="li1"><span class="s1"><br>
+</span></li>
+  <li class="li6"></li>
+  <li class="li7"><span class="s11"><br>
+</span><span class="s12"><br>
+<br>
+</span></li>
+  <li class="li1"><span class="s1"><br>
+</span></li>
+</ul>
+<p class="p8"><span class="s3"></span><br></p>
+<h3 style="margin: 0.0px 0.0px 0.0px 0.0px; line-height: 36.3px; font: 17.3px Roboto; color: #000000; -webkit-text-stroke: #000000"><span class="s13"><a href="https://ekmfg.adionsystems.com/procnc/nonconformancereports">Non-Conformance Report</a> / <a href="https://ekmfg.adionsystems.com/procnc/nonconformancereports/2025/202501"><span class="s14">202501</span></a></span></h3>
+<h3 style="margin: 0.0px 0.0px 0.0px 0.0px; text-align: center; line-height: 16.1px; font: 13.4px Roboto; color: #000000; -webkit-text-stroke: #000000"><span class="s13">Edward Köehn Co.</span></h3>
+<table width="800.0" cellspacing="0" cellpadding="0" class="t1">
+  <tbody>
+    <tr>
+      <td colspan="3" valign="middle" class="td1">
+        <table width="790.0" cellspacing="0" cellpadding="0" class="t2">
+          <tbody>
+            <tr>
+              <td valign="top" class="td2">
+                <table cellspacing="0" cellpadding="0" class="t3">
+                  <tbody>
+                    <tr>
+                      <td valign="top" class="td3">
+                        <table width="334.5" cellspacing="0" cellpadding="0" class="t4">
+                          <tbody>
+                            <tr>
+                              <td valign="top" class="td4">
+                                <p class="p11"><span class="s3"></span><br></p>
+                                <p class="p12"><span class="s3">NCR Ref #:</span></p>
+                              </td>
+                              <td valign="top" class="td5">
+                                <p class="p12"><span class="s3">202501</span></p>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td valign="top" class="td4">
+                                <p class="p12"><span class="s3">Part #:</span></p>
+                              </td>
+                              <td valign="top" class="td5">
+                                <p class="p13"><span class="s3"><a href="https://ekmfg.adionsystems.com/procnc/parts/TRONEX-TP1512">TRONEX-TP1512<span class="s15"></span></a></span></p>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td valign="top" class="td4">
+                                <p class="p12"><span class="s3">Part Name:</span></p>
+                              </td>
+                              <td valign="top" class="td5">
+                                <p class="p12"><span class="s3">TRON 7100 HT</span></p>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td valign="top" class="td4">
+                                <p class="p12"><span class="s3">Part Description:</span></p>
+                              </td>
+                              <td valign="top" class="td5">
+                                <p class="p12"><span class="s3">STANDARD BLACK NUT, 1144 STRESSPROOF HEAT TREAT AND BLACK OXI</span></p>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td valign="top" class="td4">
+                                <p class="p12"><span class="s3">Customer / Vendor:</span></p>
+                              </td>
+                              <td valign="top" class="td5">
+                                <p class="p13"><span class="s3"><a href="https://ekmfg.adionsystems.com/procnc/contacts/Client/TRONEX$">Desco Industries Inc.<span class="s15"></span></a></span></p>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td valign="top" class="td4">
+                                <p class="p12"><span class="s3">Cust PO#:</span></p>
+                              </td>
+                              <td valign="top" class="td5">
+                                <p class="p13"><span class="s3"><a href="https://ekmfg.adionsystems.com/procnc/customerPo/HOUSE-IN%20HOUSE%2005FEB2025">HOUSE-IN HOUSE 05FEB2025<span class="s15"></span></a></span></p>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </td>
+                      <td valign="top" class="td6">
+                        <table width="169.4" cellspacing="0" cellpadding="0" class="t5">
+                          <tbody>
+                            <tr>
+                              <td valign="top" class="td7">
+                                <p class="p12"><span class="s3">Qty:</span></p>
+                              </td>
+                              <td valign="top" class="td8">
+                                <p class="p12"><span class="s3">10832.0</span></p>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td valign="top" class="td7">
+                                <p class="p12"><span class="s3">Dispositioned Qty:</span></p>
+                              </td>
+                              <td valign="top" class="td8">
+                                <p class="p14"><span class="s3">2149.0</span></p>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td valign="top" class="td7">
+                                <p class="p12"><span class="s3">Part Rev:</span></p>
+                              </td>
+                              <td valign="top" class="td8">
+                                <p class="p13"><span class="s3"><a href="https://ekmfg-2a13bbf7-2130-4796-8e50-35388ef1cab9.adionsystems.com:8181/files/Current%20Projects/Desco_Industries_Inc/TP1512/Approved_Prints/TP1512_Rev_A.pdf">A<span class="s15"></span></a></span></p>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td valign="top" class="td7">
+                                <p class="p12"><span class="s3">Customer Ref #:</span></p>
+                              </td>
+                              <td valign="top" class="td8">
+                                <p class="p12"><span class="s3">TRONEX-160540</span></p>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td valign="top" class="td7">
+                                <p class="p12"><span class="s3">Work Order #:</span></p>
+                              </td>
+                              <td valign="top" class="td8">
+                                <p class="p13"><span class="s3"><a href="https://ekmfg.adionsystems.com/procnc/workorders/2025/25-0126">25-0126<span class="s15"></span></a></span></p>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td valign="top" class="td7">
+                                <p class="p12"><span class="s3">Op #:</span></p>
+                              </td>
+                              <td valign="top" class="td8">
+                                <p class="p13"><span class="s3"><a href="https://ekmfg.adionsystems.com/procnc/workorders/25-0126$opId=50&amp;pageType=opNav">50<span class="s15"></span></a></span></p>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </td>
+                      <td valign="top" class="td9">
+                        <table width="213.1" cellspacing="0" cellpadding="0" class="t6">
+                          <tbody>
+                            <tr>
+                              <td valign="top" class="td10">
+                                <p class="p12"><span class="s3">Status:</span></p>
+                              </td>
+                              <td valign="top" class="td11">
+                                <p class="p15"><span class="s16">Outstanding</span></p>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td valign="top" class="td10">
+                                <p class="p12"><span class="s3">Responsibility:</span></p>
+                              </td>
+                              <td valign="top" class="td11">
+                                <p class="p12"><span class="s3">Internal</span></p>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td valign="top" class="td10">
+                                <p class="p12"><span class="s3">Type:</span></p>
+                              </td>
+                              <td valign="top" class="td11">
+                                <p class="p12"><span class="s3">NCR (COMPLAINT)</span></p>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td valign="top" class="td10">
+                                <p class="p12"><span class="s3">Vendor PO #:</span></p>
+                              </td>
+                              <td valign="top" class="td11">
+                                <p class="p12"><span class="s3"> </span></p>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td valign="top" class="td10">
+                                <p class="p12"><span class="s3">RMA #:</span></p>
+                              </td>
+                              <td valign="top" class="td11">
+                                <p class="p12"><span class="s3"> </span></p>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td valign="top" class="td10">
+                                <p class="p12"><span class="s3">CAR #:</span></p>
+                              </td>
+                              <td valign="top" class="td11">
+                                <p class="p13"><span class="s3"><a href="https://ekmfg.adionsystems.com/procnc/correctiveactionrequests/25.0003">25.0003<span class="s15"></span></a></span></p>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+              <td valign="top" class="td12">
+                <p class="p16"><span class="s17">+</span></p>
+              </td>
+            </tr>
+            <tr>
+              <td colspan="2" valign="middle" class="td13">
+                <p class="p17"><span class="s3">Details</span></p>
+                <table cellspacing="0" cellpadding="0" class="t7">
+                  <tbody>
+                    <tr>
+                      <td valign="bottom" class="td14">
+                        <p class="p18"><span class="s3">Op #</span></p>
+                      </td>
+                      <td valign="bottom" class="td15">
+                        <p class="p18"><span class="s3">Work Cell</span></p>
+                      </td>
+                      <td valign="bottom" class="td16">
+                        <p class="p18"><span class="s3">Dim Tag #</span></p>
+                      </td>
+                      <td valign="bottom" class="td17">
+                        <p class="p18"><span class="s3">Drawing Spec</span></p>
+                      </td>
+                      <td valign="bottom" class="td18">
+                        <p class="p18"><span class="s3">Tolerance</span></p>
+                      </td>
+                      <td valign="bottom" class="td19">
+                        <p class="p18"><span class="s3">Actual</span></p>
+                        <p class="p18"><span class="s3">Measurement</span></p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td valign="top" class="td20">
+                        <p class="p19"><span class="s3"><a href="https://ekmfg.adionsystems.com/procnc/workorders/25-0126$opId=50&amp;pageType=opNav">50<span class="s15"></span></a></span></p>
+                      </td>
+                      <td valign="top" class="td21">
+                        <p class="p19"><span class="s3"><a href="https://ekmfg.adionsystems.com/procnc/toolPots/1907%20-%20SWISS">1907 - SWISS<span class="s15"></span></a></span></p>
+                      </td>
+                      <td valign="top" class="td22">
+                        <p class="p20"><span class="s3"></span><br></p>
+                      </td>
+                      <td valign="top" class="td23">
+                        <p class="p20"><span class="s3"></span><br></p>
+                      </td>
+                      <td valign="top" class="td24">
+                        <p class="p20"><span class="s3"></span><br></p>
+                      </td>
+                      <td valign="top" class="td25">
+                        <p class="p20"><span class="s3"></span><br></p>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+            </tr>
+            <tr>
+              <td colspan="2" valign="middle" class="td26">
+                <table cellspacing="0" cellpadding="0" class="t7">
+                  <tbody>
+                    <tr>
+                      <td valign="middle" class="td27">
+                        <p class="p11"><span class="s3"></span><br></p>
+                        <p class="p21"><span class="s3">NCR Code:</span></p>
+                      </td>
+                      <td valign="middle" class="td28">
+                        <p class="p21"><span class="s3">NC502 (Surface Finish)</span></p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td valign="middle" class="td27">
+                        <p class="p11"><span class="s3"></span><br></p>
+                        <p class="p21"><span class="s3">Cause Code:</span></p>
+                      </td>
+                      <td valign="middle" class="td29">
+                        <p class="p21"><span class="s3">C4 (Cutting Tool Failure)</span></p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td valign="middle" class="td27">
+                        <p class="p21"><span class="s3"># of Parts Affected:</span></p>
+                      </td>
+                      <td valign="middle" class="td29">
+                        <p class="p21"><span class="s3">10832</span></p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td valign="middle" class="td27">
+                        <p class="p21"><span class="s3">Serial Number(s):</span></p>
+                      </td>
+                      <td valign="middle" class="td29">
+                        <p class="p22"><span class="s3"></span><br></p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td valign="middle" class="td27">
+                        <p class="p11"><span class="s3"></span><br></p>
+                        <p class="p21"><span class="s3">User:</span></p>
+                      </td>
+                      <td valign="middle" class="td29">
+                        <p class="p13"><span class="s3"><a href="https://ekmfg.adionsystems.com/procnc/users/010">Edward Koehn<span class="s15"></span></a></span></p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td valign="middle" class="td27">
+                        <p class="p21"><span class="s3">Assigned To:</span></p>
+                      </td>
+                      <td valign="middle" class="td29">
+                        <p class="p13"><span class="s3"><a href="https://ekmfg.adionsystems.com/procnc/users/010">Edward Koehn<span class="s15"></span></a></span></p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td valign="middle" class="td27">
+                        <p class="p21"><span class="s3">NCR Date:</span></p>
+                      </td>
+                      <td valign="middle" class="td29">
+                        <p class="p21"><span class="s3">7/17/2025; 04:14:19 PM</span></p>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+            </tr>
+            <tr>
+              <td colspan="2" valign="middle" class="td26">
+                <p class="p17"><span class="s3">Notes</span></p>
+                <p class="p22"><span class="s3"></span><br></p>
+              </td>
+            </tr>
+            <tr>
+              <td colspan="2" valign="middle" class="td26">
+                <p class="p17"><span class="s3">Process Improvement Suggestion</span></p>
+                <p class="p22"><span class="s3"></span><br></p>
+                <p class="p22"><span class="s3"></span><br></p>
+              </td>
+            </tr>
+            <tr>
+              <td colspan="2" valign="middle" class="td26">
+                <p class="p17"><span class="s3">Disposition</span></p>
+                <table cellspacing="0" cellpadding="0" class="t8">
+                  <tbody>
+                    <tr>
+                      <td valign="middle" class="td30">
+                        <table cellspacing="0" cellpadding="0" class="t7">
+                          <tbody>
+                            <tr>
+                              <td valign="bottom" class="td31">
+                                <p class="p18"><span class="s3">Disposition</span></p>
+                                <p class="p18"><span class="s3">Quantity</span></p>
+                              </td>
+                              <td valign="bottom" class="td32">
+                                <p class="p23"><span class="s3"></span><br></p>
+                                <p class="p18"><span class="s3">Disposition</span></p>
+                              </td>
+                              <td valign="bottom" class="td33">
+                                <p class="p18"><span class="s3">Disposition</span></p>
+                                <p class="p18"><span class="s3">Notes</span></p>
+                              </td>
+                              <td valign="bottom" class="td34">
+                                <p class="p18"><span class="s3">Per Part</span></p>
+                                <p class="p18"><span class="s3">Value</span></p>
+                              </td>
+                              <td valign="bottom" class="td35">
+                                <p class="p18"><span class="s3">Adjustment</span></p>
+                                <p class="p18"><span class="s3">Multiplier</span></p>
+                              </td>
+                              <td valign="bottom" class="td36">
+                                <p class="p18"><span class="s3">Total</span></p>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td valign="top" class="td37">
+                                <p class="p24"><span class="s3">600</span></p>
+                              </td>
+                              <td valign="top" class="td38">
+                                <p class="p25"><span class="s3">UAI (use as is)</span></p>
+                              </td>
+                              <td valign="top" class="td39">
+                                <p class="p25"><span class="s3">Mike inspected on 7/30/2025</span></p>
+                              </td>
+                              <td valign="top" class="td40">
+                                <p class="p24"><span class="s3">0.99</span></p>
+                              </td>
+                              <td valign="top" class="td41">
+                                <p class="p24"><span class="s3">150%</span></p>
+                              </td>
+                              <td valign="top" class="td42">
+                                <p class="p24"><span class="s3">$891.00</span></p>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td valign="top" class="td43">
+                                <p class="p24"><span class="s3">1549</span></p>
+                              </td>
+                              <td valign="top" class="td44">
+                                <p class="p25"><span class="s3">UAI (use as is)</span></p>
+                              </td>
+                              <td valign="top" class="td45">
+                                <p class="p25"><span class="s3">Mike inspected on 8/3/2025</span></p>
+                              </td>
+                              <td valign="top" class="td46">
+                                <p class="p24"><span class="s3">0.99</span></p>
+                              </td>
+                              <td valign="top" class="td47">
+                                <p class="p24"><span class="s3">150%</span></p>
+                              </td>
+                              <td valign="top" class="td48">
+                                <p class="p24"><span class="s3">$2300.26</span></p>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td valign="top" class="td49">
+                                <p class="p26"><span class="s3"></span><br></p>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td valign="middle" class="td30">
+                        <p class="p22"><span class="s3"></span><br></p>
+                        <p class="p21"><span class="s3">Attachments:</span></p>
+                        <p class="p22"><span class="s3"></span><br></p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td valign="middle" class="td50">
+                        <p class="p22"><span class="s3"></span><br></p>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+            </tr>
+            <tr>
+              <td colspan="2" valign="middle" class="td26">
+                <p class="p27"><span class="s18">Subsequent NCRs </span><span class="s19">Get a description of the Subsequent NCRs table</span><span class="s20">expand_more</span><span class="s21"><span class="Apple-converted-space"> </span></span></p>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <p class="p28"><span class="s3">CHANGE ME</span><span class="s22"><span class="Apple-converted-space"> </span></span></p>
+        <table width="790.0" cellspacing="0" cellpadding="0" class="t2">
+          <tbody>
+            <tr>
+              <td colspan="2" valign="middle" class="td51">
+                <p class="p21"><span class="s3">Attachments:</span></p>
+                <p class="p22"><span class="s3"></span><br></p>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<p class="p29"><span class="s3">Record Modified: 8/5/2025; 08:52:26 AM</span></p>
+<p class="p30"><span class="s23">by: <a href="https://ekmfg.adionsystems.com/procnc/users/040"><span class="s24">Peter Cownan</span></a></span></p>
+<p class="p29"><span class="s3">Record Created: 7/17/2025; 04:17:12 PM</span></p>
+<p class="p30"><span class="s23">by: <a href="https://ekmfg.adionsystems.com/procnc/users/010"><span class="s24">Edward Koehn</span></a></span></p>
+<p class="p31"><span class="s3">ProShop Version: 5.2.5.53</span></p>
+<p class="p31"><span class="s3">Copyright © 2025 ProShop ERP.</span></p>
+<p class="p31"><span class="s3">All Rights Reserved.</span></p>
+<p class="p8"><span class="s3"></span><br></p>
+<p class="p8"><span class="s3"></span><br></p>
+<p class="p32"><span class="s3"></span><br></p>
+<p class="p32"><span class="s3"></span><br></p>
+<p class="p33"><span class="s3">3</span></p>
+<p class="p8"><span class="s3"></span><br></p>
+<p class="p8"><span class="s3"></span><br></p>
+</body>
+</html>

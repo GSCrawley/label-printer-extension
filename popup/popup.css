@@ -1,0 +1,15 @@
+.row { margin: 8px 0; }
+.group-label { margin-bottom: 6px; font-weight: 600; }
+.btns { display: flex; gap: 6px; }
+.pbtn { padding: 6px 10px; border: 1px solid #ccc; border-radius: 8px; background: #f6f6f6; cursor: pointer; }
+.pbtn.active { outline: 2px solid #0078d4; background: #eef6ff; }
+.info { color: #444; }
+
+.modeLabel { display:flex; align-items:center; gap:8px; }
+.modeLabel input { cursor: pointer; }   
+.modeLabel span { cursor: pointer; }   
+.modeLabel .info { font-size: 0.9em; color: #666; font-style: italic; }
+
+body.preview h3 { color: #0b6; }
+body.silent h3  { color: #d60; }
+body.error h3   { color: #d00; }

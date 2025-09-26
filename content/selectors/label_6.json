@@ -1,0 +1,40 @@
+{
+  "actions": [
+    { "type": "waitFor", "selector": "body" },
+
+    { "type": "clickByTextIfExists", "text": "Work Order Navigation", "fuzzy": true, "safetyDelay_ms": 250 },
+
+    { "type": "sleep", "ms": 150 }
+  ],
+  "fields": {
+    "workOrder": {
+      "selectors": ["[data-wo-number]", ".wo-number", "h1 .wo", ".header .wo"],
+      "label": "WORK ORDER"
+    },
+    "customer": {
+      "selectors": [".customer .value", "[data-customer]"],
+      "label": "CUSTOMER"
+    },
+    "partNo": {
+      "selectors": [".part-number .value", "[data-part-number]"],
+      "label": "PART #"
+    },
+    "partRev": {
+      "selectors": [".part-rev .value", "[data-part-rev]"],
+      "label": "Part Rev"
+    },
+    "qtyOrdered": {
+      "selectors": [".qty-ordered .value", "[data-qty-ordered]"],
+      "label": "Qty Ordered"
+    },
+
+    "custDue": {
+      "selectors": [".cust-due .value", "[data-cust-due]"],
+      "label": "CUST. DUE"
+    },
+    "rawStockQty": {
+      "selectors": [".raw-stock-qty .value", "[data-raw-stock-qty]"],
+      "label": "Raw Stock Qty"
+    }
+  }
+}
